@@ -1,0 +1,21 @@
+version: '3'
+services:
+  pia_socks_proxy:
+    container_name: pia-socks-proxy
+    image: oneofone/pia-socks-proxy
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    environment:
+      - REGION=US East
+      - USERNAME=PIA-USERNAME
+      - PASSWORD=PIA-PASSWORD
+    networks:
+      - pia_socks_proxy
+    ports:
+      - 1080:1080
+    restart: always
+
+networks:
+  pia_socks_proxy:
