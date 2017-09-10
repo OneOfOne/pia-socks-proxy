@@ -38,6 +38,8 @@ docker-compose up -d
 
 `REGION` is optional. The default region is set to `US East`. `REGION` should match the supported PIA `.opvn` region config.
 
+List of available regions: [*.ovpn](https://github.com/OneOfOne/pia-socks-proxy/tree/master/app/ovpn/config/pia)
+
 See the [PIA VPN Tunnel Network page](https://www.privateinternetaccess.com/pages/network) for details.
 Use the `Location` value for your `REGION`.
 
@@ -67,3 +69,7 @@ $ curl -v --proxy socks5h://localhost:1080
 ```shell
 env ALL_PROXY=socks5h://localhost:1080 git clone https://github.com/some/one.git
 ```
+
+## Credits
+
+- [act28/pia-openvpn-proxy](https://github.com/act28/pia-openvpn-proxy), used the openvpn config from his image, but he uses privoxy rather than socks5.
