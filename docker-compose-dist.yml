@@ -1,6 +1,7 @@
 version: '3'
 services:
   pia_socks_proxy:
+    build: https://github.com/OneOfOne/pia-socks-proxy.git
     container_name: pia-socks-proxy
     image: oneofone/pia-socks-proxy
     cap_add:
@@ -11,6 +12,9 @@ services:
       - REGION=US East
       - USERNAME=PIA-USERNAME
       - PASSWORD=PIA-PASSWORD
+      - DNS=1.1.1.1@853#cloudflare-dns.com 1.0.0.1@853#cloudflare-dns.com
+      - PROTOCOL="udp"
+      - ENCRYPTION="strong"
     networks:
       - pia_socks_proxy
     ports:

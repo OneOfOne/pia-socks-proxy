@@ -1,5 +1,3 @@
-[![logo](https://www.privateinternetaccess.com/assets/PIALogo2x-09ca10950967bd3be87a5ef7730a69e07892d519cfc8f15228bec0a4f6102cc1.png)](https://www.privateinternetaccess.com/pages/network)
-
 # A socks5 proxy via Private Internet Access.
 
 An [Alpine](https://alpinelinux.org/) Linux container running a socks5 proxy (using [dante](https://www.inet.no/dante/)) via Private Internet Access (OpenVPN).
@@ -9,17 +7,26 @@ Protect your browsing activities through an encrypted and anonymized VPN proxy!
 You will need a [PrivateInternetAccess](https://www.privateinternetaccess.com/pages/how-it-works) account.
 If you don't have one, you can [sign up here](https://www.privateinternetaccess.com/pages/buy-vpn) for one.
 
+[![Docker Build Status](https://img.shields.io/docker/build/oneofone/pia-socks-proxy.svg?style=flat-square)]()
+[![Docker Build Status](https://img.shields.io/docker/automated/oneofone/pia-socks-proxy.svg?style=flat-square)]()
+[![Docker Build Status](https://img.shields.io/docker/pulls/oneofone/pia-socks-proxy.svg?style=flat-square)]()
+[![Docker Build Status](https://img.shields.io/docker/stars/oneofone/pia-socks-proxy.svg?style=flat-square)]()
+
+
 ## Starting the VPN Proxy
 
-```bash
+```sh
 docker run -d \
 --cap-add=NET_ADMIN \
 --device=/dev/net/tun \
 --name=pia-socks-proxy \
 --restart=always \
--e "REGION=<region>" \
 -e "USERNAME=<pia_username>" \
 -e "PASSWORD=<pia_password>" \
+-e "REGION=<region>" \ # default US East
+-e "DNS=<dns servers" \ # default: cloudflare's tls servers 1.1.1.1@853#cloudflare-dns.com 1.0.0.1@853#cloudflare-dns.com
+-e "ENCRYPTION=[strong|normal]" # default: strong
+-e "PROTOCOL=[udp|tcp]" #default: udp
 -p 1080:1080 \
 oneofone/pia-socks-proxy
 ```
@@ -30,15 +37,13 @@ A `docker-compose-dist.yml` file has also been provided. Copy this file to `dock
 
 Then start the VPN Proxy via:
 
-```bash
+```sh
 docker-compose up -d
 ```
 
 ### Environment Variables
 
 `REGION` is optional. The default region is set to `US East`. `REGION` should match the supported PIA `.opvn` region config.
-
-List of available regions: [*.ovpn](https://github.com/OneOfOne/pia-socks-proxy/tree/master/app/ovpn/config/pia)
 
 See the [PIA VPN Tunnel Network page](https://www.privateinternetaccess.com/pages/network) for details.
 Use the `Location` value for your `REGION`.
@@ -73,3 +78,4 @@ env ALL_PROXY=socks5h://localhost:1080 git clone https://github.com/some/one.git
 ## Credits
 
 - [act28/pia-openvpn-proxy](https://github.com/act28/pia-openvpn-proxy), used the openvpn config from his image, but he uses privoxy rather than socks5.
+- [qmcgaw/private-internet-access](https://github.com/qdm12/private-internet-access-docker) unbound config + dynamically download the latest PIA configs.
