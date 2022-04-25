@@ -28,7 +28,7 @@ docker run -d \
 -e "ENCRYPTION=[strong|normal]" # default: strong
 -e "PROTOCOL=[udp|tcp]" #default: udp
 -p 1080:1080 \
-oneofone/pia-socks-proxy
+simon5738/pia-socks-proxy
 ```
 
 Substitute the environment variables for `REGION`, `USERNAME`, `PASSWORD` as indicated.
