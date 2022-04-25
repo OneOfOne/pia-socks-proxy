@@ -1,5 +1,5 @@
 FROM alpine:latest
-MAINTAINER Ahmed <OneOfOne> W.
+MAINTAINER simon5738
 
 EXPOSE 1080
 
