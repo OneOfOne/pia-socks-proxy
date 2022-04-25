@@ -7,12 +7,6 @@ Protect your browsing activities through an encrypted and anonymized VPN proxy!
 You will need a [PrivateInternetAccess](https://www.privateinternetaccess.com/pages/how-it-works) account.
 If you don't have one, you can [sign up here](https://www.privateinternetaccess.com/pages/buy-vpn) for one.
 
-[![Docker Build Status](https://img.shields.io/docker/build/oneofone/pia-socks-proxy.svg?style=flat-square)]()
-[![Docker Build Status](https://img.shields.io/docker/automated/oneofone/pia-socks-proxy.svg?style=flat-square)]()
-[![Docker Build Status](https://img.shields.io/docker/pulls/oneofone/pia-socks-proxy.svg?style=flat-square)]()
-[![Docker Build Status](https://img.shields.io/docker/stars/oneofone/pia-socks-proxy.svg?style=flat-square)]()
-
-
 ## Starting the VPN Proxy
 
 ```sh
