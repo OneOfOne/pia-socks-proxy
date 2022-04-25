@@ -1,9 +1,9 @@
 version: '3'
 services:
   pia_socks_proxy:
-    build: https://github.com/OneOfOne/pia-socks-proxy.git
+    build: https://github.com/simon5738/pia-socks-proxy.git
     container_name: pia-socks-proxy
-    image: oneofone/pia-socks-proxy
+    image: simon5738/pia-socks-proxy
     cap_add:
       - NET_ADMIN
     devices:
